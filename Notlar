@@ -1,0 +1,4 @@
+Notlar:
+
+1. Her component ve page icin oncelikle 1 Container olusturulur ve bu container div olur.
+2. Tekrar eden patternler varsa, diyelim bi bir grup item tekrar ediyor bunun icin bir wrapper olusturulur.
