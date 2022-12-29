@@ -8,15 +8,12 @@ import {
   VideoLibrary,
   History,
   LiveTv,
-  LibraryMusic,
   LibraryMusicOutlined,
   SportsBasketballOutlined,
   SportsEsportsOutlined,
   MovieCreationOutlined,
   NewspaperOutlined,
   SettingsOutlined,
-  Report,
-  ReportOutlined,
   FlagOutlined,
   HelpOutline,
   SettingsBrightnessOutlined,
@@ -57,6 +54,9 @@ const MenuItem = styled.div`
   gap: 20px;
   cursor: pointer;
   padding: 7.5px 0px;
+  &:hover{
+    background-color:${({theme})=>theme.menuHover}
+  }
 `;
 
 const MenuItemIcon = styled.span``;
@@ -93,6 +93,13 @@ const LoginButton = styled.button`
 
 const LoginButtonIcon = styled.span`
 
+`;
+
+const Title = styled.h2`
+  font-size:14px;
+  font-weight:500;
+  color:#aaaaaa;
+  margin-bottom:20px;
 `;
 
 const Menu = (props) => {
@@ -150,6 +157,10 @@ const Menu = (props) => {
               SIGN IN
           </LoginButton>
         </Login>
+        <MenuItemDivider></MenuItemDivider>
+        <Title>
+          BEST OF 4LBATR0STUBE
+        </Title>
         <MenuItem>
           <MenuItemIcon>
             <LibraryMusicOutlined></LibraryMusicOutlined>

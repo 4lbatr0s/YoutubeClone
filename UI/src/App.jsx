@@ -3,6 +3,9 @@ import Menu from "./components/Menu";
 import Navbar from "./components/Navbar";
 import { darkTheme, lightTheme} from "../utils/theme";
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Video from "./pages/Video";
+import Home from "./pages/Home";
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -14,7 +17,9 @@ const Main = styled.div`
   background-color: ${({theme})=> theme.bg};
 `;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  padding: 22px 22  px;
+`;
 
 function App() {
 
@@ -44,75 +49,12 @@ function App() {
         <Main>
           <Navbar></Navbar>
           <Wrapper>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1>test</h1>
+            <Routes> {/*INFO: You should implement children routes inside the parent route. */}
+              <Route path="/" element = {<Home/>}/>
+              <Route path="/video">
+                <Route path=":id" element={<Video/>}/>
+              </Route>
+            </Routes>
           </Wrapper>
         </Main>
       </Container>
