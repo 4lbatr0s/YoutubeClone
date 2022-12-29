@@ -19,15 +19,17 @@ import {
   SettingsBrightnessOutlined,
   AccountCircleOutlined,
 } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   flex: 1;
-  background-color: ${({theme})=>theme.bg}; //INFO: How to use theme in styled components!
+  background-color: ${({ theme }) =>
+    theme.bg}; //INFO: How to use theme in styled components!
   height: 100vh; //INFO: Makes height full page.
-  color:  ${({theme})=>theme.text};;
+  color: ${({ theme }) => theme.text};
   font-size: 14px;
-  position:sticky; //INFO: 
-  top:0;
+  position: sticky; //INFO:
+  top: 0;
 `;
 
 const Wrapper = styled.div`
@@ -54,8 +56,8 @@ const MenuItem = styled.div`
   gap: 20px;
   cursor: pointer;
   padding: 7.5px 0px;
-  &:hover{
-    background-color:${({theme})=>theme.menuHover}
+  &:hover {
+    background-color: ${({ theme }) => theme.menuHover};
   }
 `;
 
@@ -65,60 +67,57 @@ const MenuItemText = styled.span``;
 
 const MenuItemDivider = styled.hr`
   margin: 15px 0px;
-  border: 0.5px solid  ${({theme})=>theme.soft};;
+  border: 0.5px solid ${({ theme }) => theme.soft}; ;
 `;
 
+const Login = styled.div``;
 
-const Login = styled.div`
-
-`; 
-
-const LoginText = styled.span`
-  
-`;
+const LoginText = styled.span``;
 
 const LoginButton = styled.button`
-  margin:10px 0px;
+  margin: 10px 0px;
   padding: 5px 15px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  background-color:transparent;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
   border: 1px solid #3ea6ff;
-  color:#3ea6ff;
-  border-radius:3px;
-  font-weight:500;
-  cursor:pointer;
+  color: #3ea6ff;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: pointer;
 `;
 
-const LoginButtonIcon = styled.span`
-
-`;
+const LoginButtonIcon = styled.span``;
 
 const Title = styled.h2`
-  font-size:14px;
-  font-weight:500;
-  color:#aaaaaa;
-  margin-bottom:20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #aaaaaa;
+  margin-bottom: 20px;
 `;
 
 const Menu = (props) => {
-
-  const {onDarkModeHandler} = props;
+  const { onDarkModeHandler } = props;
 
   return (
     <Container>
       <Wrapper>
-        <LogoWrapper>
-          <LogoImg src={AlbatrosTube}></LogoImg>
-          <LogoText>4lbatr0sTube</LogoText>
-        </LogoWrapper>
-        <MenuItem>
-          <MenuItemIcon>
-            <Home></Home>
-          </MenuItemIcon>
-          <MenuItemText>Home</MenuItemText>
-        </MenuItem>
+        {/*INFO: color inherit: to prevent link to return purple! */}
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <LogoWrapper>
+            <LogoImg src={AlbatrosTube}></LogoImg>
+            <LogoText>4lbatr0sTube</LogoText>
+          </LogoWrapper>
+        </Link>
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <MenuItem>
+            <MenuItemIcon>
+              <Home></Home>
+            </MenuItemIcon>
+            <MenuItemText>Home</MenuItemText>
+          </MenuItem>
+        </Link>
         <MenuItem>
           <MenuItemIcon>
             <Explore></Explore>
@@ -146,21 +145,16 @@ const Menu = (props) => {
         </MenuItem>
         <MenuItemDivider />
         <Login>
-          <LoginText>
-            Sign in to like videos, comment, and subscribe.
-          </LoginText>
+          <LoginText>Sign in to like videos, comment, and subscribe.</LoginText>
           <LoginButton>
             <LoginButtonIcon>
-              <AccountCircleOutlined>
-              </AccountCircleOutlined>
+              <AccountCircleOutlined></AccountCircleOutlined>
             </LoginButtonIcon>
-              SIGN IN
+            SIGN IN
           </LoginButton>
         </Login>
         <MenuItemDivider></MenuItemDivider>
-        <Title>
-          BEST OF 4LBATR0STUBE
-        </Title>
+        <Title>BEST OF 4LBATR0STUBE</Title>
         <MenuItem>
           <MenuItemIcon>
             <LibraryMusicOutlined></LibraryMusicOutlined>
