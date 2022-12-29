@@ -144,15 +144,19 @@ const Menu = (props) => {
           <MenuItemText>History</MenuItemText>
         </MenuItem>
         <MenuItemDivider />
-        <Login>
-          <LoginText>Sign in to like videos, comment, and subscribe.</LoginText>
-          <LoginButton>
-            <LoginButtonIcon>
-              <AccountCircleOutlined></AccountCircleOutlined>
-            </LoginButtonIcon>
-            SIGN IN
-          </LoginButton>
-        </Login>
+        <Link to="/signin" style={{textDecoration:"none", color:"inherit"}}>
+          <Login>
+            <LoginText>
+              Sign in to like videos, comment, and subscribe.
+            </LoginText>
+            <LoginButton>
+              <LoginButtonIcon>
+                <AccountCircleOutlined></AccountCircleOutlined>
+              </LoginButtonIcon>
+              SIGN IN
+            </LoginButton>
+          </Login>
+        </Link>
         <MenuItemDivider></MenuItemDivider>
         <Title>BEST OF 4LBATR0STUBE</Title>
         <MenuItem>

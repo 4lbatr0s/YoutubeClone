@@ -59,7 +59,7 @@ const Card = ({type}) => {
   return (      //INFO: we remove text decoration in order to remove link underlines.
     <Link to="/video/meatthezo" style={{textDecoration:"none"}}>
       <Container type ={type}>
-        <CardImage type={type} src="https://i.ytimg.com/an_webp/jNQXAC9IVRw/mqdefault_6s.webp?du=3000&sqp=CLjytZ0G&rs=AOn4CLBwWov1KSE3261_ocrFunrXsV9BUQ"></CardImage>
+        <CardImage type={type} src="https://i.ytimg.com/vi/jNQXAC9IVRw/hqdefault.jpg"></CardImage>
         <CardDetails type ={type}>
           <ChannelImg type={type} src="https://i.kym-cdn.com/entries/icons/mobile/000/012/982/039.jpg"></ChannelImg>
           <Texts type={type}>
