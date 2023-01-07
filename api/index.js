@@ -1,18 +1,50 @@
-// Promise = require('bluebird'); // eslint-disable-line no-global-assign
-import Promise  from "bluebird";
-Promise = Promise;
-import vars from "./config/vars.js";
-import logger from "./config/logger.js";
-import app from "./config/express.js";
-import mongoose from "./config/mongoose.js";
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv"
+import morgan from "morgan";
 
-//mongoose connection.
-mongoose();
+import logStream from "./config/morgan.js";
 
-app.listen(vars.port, ()=>logger.info(`server started on port ${vars.port} (${vars.env})`));
+//import routes
+import userRoutes from "./routes/users.js";
+import videoRoutes from "./routes/videos.js";
+import commentRoutes from "./routes/comments.js";
+import authRoutes from "./routes/auth.js";
 
-/**
- * Exports express
- * @public
- */
-export {app}
+
+const app = express();
+dotenv.config();
+
+
+const connectToDb = ()=>{
+    mongoose.connect(process.env.MONGO_URI).then(()=>{
+        console.log("Connected to db");
+    }).catch((err)=> {
+        throw err;
+    })
+}
+
+app.use(express.json());//INFO: without this middleware, we cannot send json object to our api.
+// app.use(morgan("common", {stream:logStream}));//INFO: HOW TO USE MORGAN Logger!
+
+app.use("/api/users", userRoutes);
+app.use("/api/videos", videoRoutes);
+app.use("/api/comments",commentRoutes);
+app.use("/api/auth",authRoutes);
+
+// INFO: Global error handling middleware, we will call it in our controllers.
+app.use((err,req,res,next)=>{
+    const status = err.status || 500;
+    const message = err.message || "Something went wrong";
+    return res.status(status).json({
+        success:false,
+        status,
+        message:message
+    })  
+})
+
+
+app.listen(8000, ()=> {
+    connectToDb();
+    console.log("connected");
+})
